@@ -104,17 +104,6 @@ func main() {
 	}()
 
 	go func() {
-		for {
-			e := <-uiEvents
-			switch e.ID {
-			case "q", "<C-c>":
-				os.Exit(0)
-				return
-			}
-		}
-	}()
-
-	go func() {
 		tickerCount := 0
 		tickerCount++
 		ticker := time.NewTicker(100 * time.Millisecond)
@@ -126,5 +115,13 @@ func main() {
 		}
 	}()
 
-	<-uiEvents
+	for {
+		e := <-uiEvents
+		switch e.ID {
+		case "q", "<C-c>":
+			ui.Close()
+			os.Exit(0)
+			return
+		}
+	}
 }

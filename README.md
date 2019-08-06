@@ -1,6 +1,6 @@
 # love-gift-selector
 
-select gift for lover
+random select gift for lover
 
 ## dep ui
 
