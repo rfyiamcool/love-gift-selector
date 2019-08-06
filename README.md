@@ -14,4 +14,4 @@ go build -o love sweet.go ; ./love
 
 ## Desc
 
-![](design.jpg)
+![](none.gif)
