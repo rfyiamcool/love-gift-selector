@@ -167,9 +167,12 @@ func randomSelect() {
 	}
 
 	l.ScrollTop()
-	for index := 1; index < fakeRow; index++ {
+
+	rand.Seed(time.Now().Unix())
+	index := rand.Intn(len(data))
+	for i := 0; i < index; i++ {
 		l.ScrollDown()
-		p.Text = data[index]
-		ui.Render(l, p)
 	}
+	p.Text = data[index]
+	ui.Render(l, p)
 }
